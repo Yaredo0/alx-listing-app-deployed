@@ -1,0 +1,30 @@
+import { FC } from "react";
+
+interface PropertyDetailProps {
+  property: {
+    id: string;
+    name: string;
+    location: string;
+    price: number;
+    description: string;
+    image: string;
+  };
+}
+
+const PropertyDetail: FC<PropertyDetailProps> = ({ property }) => {
+  return (
+    <div className="p-6 border rounded-md">
+      <img
+        src={property.image}
+        alt={property.name}
+        className="w-full h-64 object-cover rounded-md"
+      />
+      <h1 className="text-2xl font-bold mt-4">{property.name}</h1>
+      <p className="text-gray-600">{property.location}</p>
+      <p className="text-green-600 font-semibold">${property.price}</p>
+      <p className="mt-2">{property.description}</p>
+    </div>
+  );
+};
+
+export default PropertyDetail;
